@@ -32,7 +32,7 @@ if (!isset($_SESSION['user_id'])) {
     </div>
 
     <div class="welcome-container">
-        <div class="card" style="background: rgba(255,255,255,0.05); border: 4px solid #000; box-shadow: 10px 10px 0px #000; border-radius: 30px;">
+        <div class="card" style="background: rgba(255,255,255,0.05); border: 4px solid #000; box-shadow: 10px 10px 0px #000; border-radius: 30px; animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55), wobble 5s infinite ease-in-out;">
             <div class="card-header">
                 <h1 style="font-family: 'Fredoka', sans-serif; font-size: 3rem; text-shadow: 2px 2px 0px #000; -webkit-text-fill-color: #fff;">DASHBOARD</h1>
                 <p style="font-size: 1.2rem; margin-top: 10px;">Welcome back, <strong style="color: var(--cartoon-yellow); text-shadow: 1px 1px 0px #000;"><?php echo htmlspecialchars($_SESSION['user_name']); ?></strong>!</p>
