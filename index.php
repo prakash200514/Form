@@ -10,6 +10,14 @@ require_once 'config.php';
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Animated Video Background -->
+    <div class="video-bg">
+        <video autoplay muted loop playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-flowing-multi-colored-gradient-background-23136-large.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
     <!-- Animated Shapes Background -->
     <div class="shapes-bg">
         <div class="shape shape-1"></div>
@@ -17,11 +25,12 @@ require_once 'config.php';
         <div class="shape shape-3"></div>
         <div class="shape shape-1" style="top:80%; left:20%; animation-delay:-2s;"></div>
         <div class="shape shape-2" style="top:20%; left:70%; animation-delay:-5s;"></div>
+        <div class="shape shape-3" style="top:70%; left:80%; animation-delay:-8s;"></div>
     </div>
 
     <div class="welcome-container">
-        <h1 class="welcome-title">READY TO START?</h1>
-        <p class="welcome-subtitle">The most secure and playful authentication system awaits you.</p>
+        <h1 class="welcome-title">WELCOME!</h1>
+        <p class="welcome-subtitle">The most advanced and highly animated system.</p>
         
         <div class="welcome-actions">
             <a href="login.php" class="btn-cartoon">

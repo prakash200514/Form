@@ -16,6 +16,14 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Animated Video Background -->
+    <div class="video-bg">
+        <video autoplay muted loop playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-flowing-multi-colored-gradient-background-23136-large.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
     <!-- Animated Shapes Background -->
     <div class="shapes-bg">
         <div class="shape shape-1"></div>
