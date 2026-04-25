@@ -217,39 +217,86 @@ input::-webkit-inner-spin-button {
     100% { transform: scale(1); }
 }
 
+/* Video Background */
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.video-bg video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    opacity: 0.4; /* Slightly dimmed for readability */
+}
+
+/* More Intense Animations */
+@keyframes wobble {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-2deg); }
+    75% { transform: rotate(2deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes pulse-glow {
+    0% { filter: drop-shadow(0 0 5px var(--primary)); }
+    50% { filter: drop-shadow(0 0 20px var(--primary)); }
+    100% { filter: drop-shadow(0 0 5px var(--primary)); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
 .welcome-title {
     font-family: 'Fredoka', sans-serif;
-    font-size: 4rem;
+    font-size: 5rem; /* Even bigger */
     margin-bottom: 1rem;
     color: #fff;
-    text-shadow: 4px 4px 0px var(--cartoon-shadow);
-    letter-spacing: 2px;
+    text-shadow: 6px 6px 0px var(--cartoon-shadow);
+    letter-spacing: 4px;
+    animation: wobble 2s infinite ease-in-out, pulse-glow 3s infinite alternate;
 }
 
 .welcome-subtitle {
-    font-size: 1.2rem;
-    color: var(--text-muted);
+    font-size: 1.5rem;
+    color: #fff;
     margin-bottom: 3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: fadeInUp 1.2s ease-out;
 }
 
 .btn-cartoon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 40px;
-    font-size: 1.5rem;
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 600;
-    text-decoration: none;
-    color: #000;
-    background: var(--cartoon-yellow);
-    border: 4px solid var(--cartoon-border);
-    border-radius: 20px;
-    box-shadow: 8px 8px 0px var(--cartoon-shadow);
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-    margin: 15px;
-    min-width: 200px;
+    /* ... existing styles ... */
+    animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.btn-cartoon:hover {
+    transform: translate(-4px, -4px) scale(1.05) rotate(-2deg); /* Extra hover effect */
+    box-shadow: 15px 15px 0px var(--cartoon-shadow);
+}
+
+.shape {
+    /* ... existing styles ... */
+    filter: blur(2px); /* Sharper than before for "cartoon" feel */
+    opacity: 0.3;
 }
 
 .btn-cartoon:hover {
