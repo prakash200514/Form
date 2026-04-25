@@ -307,8 +307,12 @@ input::-webkit-inner-spin-button {
     font-weight: 600;
     text-decoration: none;
     color: #000;
-    background: var(--cartoon-yellow);
-    border: 5px solid var(--cartoon-border);
+    
+    /* Rainbow Gradient Border Hack */
+    background: linear-gradient(var(--cartoon-yellow), var(--cartoon-yellow)) padding-box,
+                linear-gradient(45deg, #ff0000, #ffeb3b, #4caf50, #2196f3, #ec4899) border-box;
+    border: 6px solid transparent;
+    
     border-radius: 25px;
     box-shadow: 10px 10px 0px var(--cartoon-shadow);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -317,7 +321,7 @@ input::-webkit-inner-spin-button {
     min-width: 220px;
     position: relative;
     overflow: hidden;
-    animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55), float-btn 3s infinite ease-in-out, rainbow-border 4s infinite linear;
+    animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55), float-btn 3s infinite ease-in-out;
 }
 
 .btn-cartoon::before {
@@ -357,12 +361,14 @@ input::-webkit-inner-spin-button {
 }
 
 .btn-cartoon.pink {
-    background: var(--cartoon-pink);
+    background: linear-gradient(var(--cartoon-pink), var(--cartoon-pink)) padding-box,
+                linear-gradient(45deg, #ff0000, #ffeb3b, #4caf50, #2196f3, #ec4899) border-box;
     color: #fff;
 }
 
 .btn-cartoon.green {
-    background: var(--cartoon-green);
+    background: linear-gradient(var(--cartoon-green), var(--cartoon-green)) padding-box,
+                linear-gradient(45deg, #ff0000, #ffeb3b, #4caf50, #2196f3, #ec4899) border-box;
     color: #fff;
 }
 
