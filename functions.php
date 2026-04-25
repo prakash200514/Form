@@ -30,6 +30,7 @@ function sendOTPEmail($email, $otp) {
     
     $mail = new PHPMailer\PHPMailer\PHPMailer(true);
     try {
+        // SMTP Settings
         $mail->isSMTP();
         $mail->Host       = SMTP_HOST;
         $mail->SMTPAuth   = true;
@@ -38,16 +39,34 @@ function sendOTPEmail($email, $otp) {
         $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = SMTP_PORT;
 
+        // SSL Fix for local XAMPP (Gmail SMTP often fails without this locally)
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
+
+        // Debugging (Log errors to smtp_debug.txt)
+        $mail->SMTPDebug = 0;
+        $mail->Debugoutput = function($str, $level) {
+            file_put_contents('smtp_debug.txt', date('[Y-m-d H:i:s]') . " $str" . PHP_EOL, FILE_APPEND);
+        };
+
+        // Recipients
         $mail->setFrom(SMTP_USER, FROM_NAME);
         $mail->addAddress($email);
 
+        // Content
         $mail->isHTML(true);
         $mail->Subject = 'Your Verification OTP';
         $mail->Body    = "Your 6-digit OTP for registration is: <b>$otp</b>. It will expire in 5 minutes.";
 
         $mail->send();
         return true;
-    } catch (Exception $e) {
+    } catch (PHPMailer\PHPMailer\Exception $e) {
+        file_put_contents('smtp_debug.txt', date('[Y-m-d H:i:s]') . " Mailer Error: " . $mail->ErrorInfo . PHP_EOL, FILE_APPEND);
         return false;
     }
 }

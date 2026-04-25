@@ -8,7 +8,7 @@ define('DB_PASS', 'password');
 // SMTP Configuration (Gmail)
 define('SMTP_HOST', 'smtp.gmail.com');
 define('SMTP_PORT', 587);
-define('SMTP_USER', 'marimuthuprakash2005@gmail.com'); // YOUR GMAIL
+define('SMTP_USER', 'marimuthuprakash360@gmail.com'); // YOUR GMAIL
 define('SMTP_PASS', 'bndh dfda lioc knwj');   // YOUR GMAIL APP PASSWORD
 define('FROM_NAME', 'OTP System');
 
