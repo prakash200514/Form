@@ -275,6 +275,25 @@ input::-webkit-inner-spin-button {
     100% { border-color: #ff0000; }
 }
 
+@keyframes rocket-fly {
+    0% { transform: translate(-200px, 200px) rotate(45deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translate(120vw, -120vh) rotate(45deg); opacity: 0; }
+}
+
+@keyframes character-drift {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(20px, -20px) rotate(5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes robot-wave {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg) scale(1.1); }
+    100% { transform: rotate(0deg); }
+}
+
 .welcome-title {
     font-family: 'Fredoka', sans-serif;
     font-size: 5rem; /* Even bigger */
@@ -360,6 +379,34 @@ input::-webkit-inner-spin-button {
 .btn-cartoon.green {
     background: var(--cartoon-green);
     color: #fff;
+}
+
+/* Cartoon Characters */
+.character {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    mix-blend-mode: screen; /* Works best for light images on dark background to hide white */
+    opacity: 0.8;
+}
+
+.robot-mascot {
+    bottom: 5%;
+    right: 5%;
+    width: 200px;
+    animation: robot-wave 3s infinite ease-in-out;
+}
+
+.rocket-ship {
+    width: 150px;
+    animation: rocket-fly 15s infinite linear;
+}
+
+.cloud-char {
+    top: 15%;
+    left: 10%;
+    width: 180px;
+    animation: character-drift 6s infinite ease-in-out;
 }
 
 /* Floating Shapes Background */

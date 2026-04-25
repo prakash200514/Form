@@ -10,7 +10,7 @@ define('SMTP_HOST', 'smtp.gmail.com');
 define('SMTP_PORT', 587);
 define('SMTP_USER', 'marimuthuprakash360@gmail.com'); // YOUR GMAIL
 define('SMTP_PASS', 'bndh dfda lioc knwj');   // YOUR GMAIL APP PASSWORD
-define('FROM_NAME', 'OTP System');
+define('FROM_NAME', 'PRAKASH-OTP SYSTEM');
 
 // Session Start
 if (session_status() === PHP_SESSION_NONE) {

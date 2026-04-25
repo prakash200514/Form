@@ -18,6 +18,11 @@ require_once 'config.php';
         </video>
     </div>
 
+    <!-- Cartoon Characters -->
+    <img src="assets/robot.png" class="character robot-mascot" alt="Robot">
+    <img src="assets/rocket.png" class="character rocket-ship" alt="Rocket">
+    <img src="assets/cloud.png" class="character cloud-char" alt="Cloud">
+
     <!-- Animated Shapes Background -->
     <div class="shapes-bg">
         <div class="shape shape-1"></div>
