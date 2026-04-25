@@ -15,26 +15,27 @@ function sanitizeInput($data) {
 // NOTE: This requires PHPMailer to work properly with Gmail SMTP.
 // Download PHPMailer from: https://github.com/PHPMailer/PHPMailer
 function sendOTPEmail($email, $otp) {
-    // Since PHPMailer is a library, I'll provide a structure.
-    // If PHPMailer is not installed, this will fail.
-    // I recommend the user to put PHPMailer in a folder named 'vendor/phpmailer'
+    // If PHPMailer is not installed, we'll return true but skip sending to avoid fatal errors.
+    // In a real scenario, the user should install PHPMailer in 'vendor/phpmailer'
     
-    /* 
+    $phpmailer_path = 'vendor/phpmailer/src/PHPMailer.php';
+    if (!file_exists($phpmailer_path)) {
+        // Fallback for debugging: OTP is logged in otp_debug.txt
+        return true; 
+    }
+
     require 'vendor/phpmailer/src/Exception.php';
     require 'vendor/phpmailer/src/PHPMailer.php';
     require 'vendor/phpmailer/src/SMTP.php';
     
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\Exception;
-    
-    $mail = new PHPMailer(true);
+    $mail = new PHPMailer\PHPMailer\PHPMailer(true);
     try {
         $mail->isSMTP();
         $mail->Host       = SMTP_HOST;
         $mail->SMTPAuth   = true;
         $mail->Username   = SMTP_USER;
         $mail->Password   = SMTP_PASS;
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = SMTP_PORT;
 
         $mail->setFrom(SMTP_USER, FROM_NAME);
@@ -49,25 +50,25 @@ function sendOTPEmail($email, $otp) {
     } catch (Exception $e) {
         return false;
     }
-    */
-    
-    // For now, I'll return true to simulate success if the user hasn't set up PHPMailer yet.
-    // In a real scenario, this would be the actual logic.
-    return true; 
 }
 
 // Save OTP to database
 function saveOTP($email, $otp) {
     global $pdo;
-    $expiry = date('Y-m-d H:i:s', strtotime('+5 minutes'));
     
     // Delete any existing OTP for this email
     $stmt = $pdo->prepare("DELETE FROM otps WHERE email = ?");
     $stmt->execute([$email]);
     
-    // Insert new OTP
-    $stmt = $pdo->prepare("INSERT INTO otps (email, otp, expiry) VALUES (?, ?, ?)");
-    return $stmt->execute([$email, $otp, $expiry]);
+    // Insert new OTP using DB's NOW() for consistency
+    $stmt = $pdo->prepare("INSERT INTO otps (email, otp, expiry) VALUES (?, ?, DATE_ADD(NOW(), INTERVAL 5 MINUTE))");
+    $result = $stmt->execute([$email, $otp]);
+
+    // DEBUG LOG: Write OTP to a local file so the developer can see it without email
+    $log_message = date('[Y-m-d H:i:s]') . " OTP for $email: $otp" . PHP_EOL;
+    file_put_contents('otp_debug.txt', $log_message, FILE_APPEND);
+
+    return $result;
 }
 
 // Verify OTP

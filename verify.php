@@ -67,12 +67,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php else: ?>
                 <form method="POST" action="">
                     <div class="otp-inputs">
-                        <input type="number" name="otp[]" class="form-control otp-input" maxlength="1" oninput="moveNext(this, 1)" required>
-                        <input type="number" name="otp[]" class="form-control otp-input" maxlength="1" oninput="moveNext(this, 2)" required>
-                        <input type="number" name="otp[]" class="form-control otp-input" maxlength="1" oninput="moveNext(this, 3)" required>
-                        <input type="number" name="otp[]" class="form-control otp-input" maxlength="1" oninput="moveNext(this, 4)" required>
-                        <input type="number" name="otp[]" class="form-control otp-input" maxlength="1" oninput="moveNext(this, 5)" required>
-                        <input type="number" name="otp[]" class="form-control otp-input" maxlength="1" oninput="moveNext(this, 6)" required>
+                        <input type="text" name="otp[]" class="form-control otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" oninput="moveNext(this, 1)" required>
+                        <input type="text" name="otp[]" class="form-control otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" oninput="moveNext(this, 2)" required>
+                        <input type="text" name="otp[]" class="form-control otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" oninput="moveNext(this, 3)" required>
+                        <input type="text" name="otp[]" class="form-control otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" oninput="moveNext(this, 4)" required>
+                        <input type="text" name="otp[]" class="form-control otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" oninput="moveNext(this, 5)" required>
+                        <input type="text" name="otp[]" class="form-control otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" oninput="moveNext(this, 6)" required>
                     </div>
 
                     <button type="submit" class="btn">Verify & Create Account</button>
