@@ -1,4 +1,4 @@
-# Premium Auth System with OTP Verification
+<h1> Premium Auth System with OTP Verification </h1>
 
 A robust, highly animated, and premium user authentication system built with PHP, MySQL, and PHPMailer. This system features mandatory email OTP (One-Time Password) verification to ensure secure user registration.
 
