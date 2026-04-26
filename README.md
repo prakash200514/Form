@@ -12,7 +12,7 @@ A robust, highly animated, and premium user authentication system built with PHP
 - **Security**: PDO-based database interactions to prevent SQL injection.
 - **Logging**: Integrated debug logging for OTP and SMTP processes.
 
-## 🛠️ Technology Stack
+🛠️ Technology Stack
 
 - **Backend**: PHP 8.x
 - **Database**: MySQL
