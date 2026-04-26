@@ -76,7 +76,7 @@ A robust, highly animated, and premium user authentication system built with PHP
 - `style.css` - Custom design system and animations.
 - `setup_db.sql` - Database schema and table structures.
 
-## 🛡️ Security Features
+🛡️ Security Features
 
 - **Password Hashing**: Uses `password_hash()` for secure storage.
 - **SQL Injection Prevention**: Uses PDO Prepared Statements.
