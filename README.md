@@ -20,7 +20,7 @@ A robust, highly animated, and premium user authentication system built with PHP
 - **Email Delivery**: PHPMailer
 - **Server**: XAMPP / WAMP / Apache
 
-## 📋 Prerequisites
+📋 Prerequisites
 
 - PHP >= 7.4
 - MySQL Server
