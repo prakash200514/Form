@@ -83,7 +83,7 @@ A robust, highly animated, and premium user authentication system built with PHP
 - **Session Management**: Secure session handling for authenticated users.
 - **OTP Expiry**: Temporary OTP storage with expiration logic.
 
-## 📝 License
+ 📝 License
 
 This project is open-source and available under the [MIT License](LICENSE).
 
