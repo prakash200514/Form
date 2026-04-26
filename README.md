@@ -64,8 +64,7 @@ A robust, highly animated, and premium user authentication system built with PHP
 5. **Run the Application**:
    - Move the project to your web server directory (e.g., `C:\xampp\htdocs\`).
    - Access it via `http://localhost/Signup%20FORM/index.php`.
-
-## 📂 Project Structure
+ 📂 Project Structure
 
 - `index.php` - Entry point with premium animations.
 - `register.php` - User registration logic and UI.
