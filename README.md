@@ -2,7 +2,7 @@
 
 A robust, highly animated, and premium user authentication system built with PHP, MySQL, and PHPMailer. This system features mandatory email OTP (One-Time Password) verification to ensure secure user registration.
 
-## 🚀 Features
+ 🚀 Features
 
 - **Premium UI/UX**: Featuring glassmorphism, animated backgrounds, and dynamic cartoon characters.
 - **Secure Registration**: User signup with password hashing (Bcrypt).
