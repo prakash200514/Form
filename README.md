@@ -27,7 +27,7 @@ A robust, highly animated, and premium user authentication system built with PHP
 - Composer (for PHPMailer dependencies)
 - Gmail Account (for SMTP) with App Password enabled
 
-## 🔧 Installation & Setup
+ 🔧 Installation & Setup
 
 1. **Clone the Repository**:
    ```bash
